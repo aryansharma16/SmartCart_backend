@@ -4,8 +4,9 @@ import dotenv from "dotenv"
 import morgan from 'morgan'
 import connectDB from './config/db.js'
 // import authRoutes from '../routes/authRoute.js'
-import authRoutes from '../server/routes/authRoute.js'
-import customCssRoutes from '../server/routes/customCssRoutes.js'
+// import authRoutes from '../server/routes/authRoute.js'
+import authRoutes from "./routes/authRoute.js"
+import customCssRoutes from './routes/customCssRoutes.js'
 import cors from 'cors'
 // cofigure env 
 dotenv.config()
