@@ -19,4 +19,11 @@ router.post("/login", loginController);
 // testin porpuse route for middleware testing token verfication
 router.get("/test", requireSignin, isAdmin, testController);
 
+
+
+//  protected route auth
+router.get("/user-auth", requireSignin, (req, res) => {
+  res.status(200).send({ ok: true });
+});
+
 export default router;
