@@ -8,13 +8,8 @@ export const requireSignin = async (req, res, next) => {
       req.headers.authorization,
       process.env.JWT_SECRET_KEY
     );
-    req.user =decode;
+    req.user = decode;
     next();
-
-     
-     
-     
-     
   } catch (error) {
     console.log(error);
   }
@@ -46,8 +41,7 @@ export const requireSignin = async (req, res, next) => {
 // };
 
 export const isAdmin = async (req, res, next) => {
-  
-// console.log(object)
+  // console.log(object)
   try {
     const user = await userModel.findById(req.user._id);
     if (user.role !== 1) {
