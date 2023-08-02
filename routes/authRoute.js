@@ -3,6 +3,7 @@ import {
   registerController,
   loginController,
   testController,
+  forgotPasswordController
 } from "../controllers/authController.js";
 
 import { isAdmin, requireSignin } from "../middlewares/authMiddleware.js";
@@ -15,6 +16,8 @@ const router = express.Router();
 router.post("/register", registerController);
 // LOGIN || METHOD POST
 router.post("/login", loginController);
+// forgot password
+router.post('/forgot-password',forgotPasswordController)
 
 // testin porpuse route for middleware testing token verfication
 router.get("/test", requireSignin, isAdmin, testController);
