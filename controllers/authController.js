@@ -81,20 +81,16 @@ export const loginController = async (req, res) => {
         message: "Invalid Password! 'in back-end'",
       });
     }
-
+    console.log(user,"hii hehe")
     // create Token
     const token = JWT.sign({ _id: user._id }, process.env.JWT_SECRET_KEY, {
       expiresIn: "7d",
     });
+    
     res.status(200).send({
       success: true,
       message: "LoginSuccessfully 'in back-end'",
-      user: {
-        name: user.name,
-        email: user.email,
-        phone: user.phone,
-        address: user.address,
-      },
+      user,
       token,
     });
   } catch (error) {
@@ -120,7 +116,7 @@ export const forgotPasswordController = async (req, res) => {
       return res
         .status(400)
         .send({ message: "Answer is Required to Login Again" });
-    } 
+    }
 
     // check the email and password of the user
     const user = await userModel.findOne({ email, answer });
