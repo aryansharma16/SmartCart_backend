@@ -34,7 +34,7 @@ export const registerController = async (req, res) => {
       name,
       email,
       phone,
-      address,
+      address, 
       password: hashedPassword, // corrected variable name
       answer,
     }).save();

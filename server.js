@@ -7,6 +7,8 @@ import connectDB from './config/db.js'
 // import authRoutes from '../server/routes/authRoute.js'
 import authRoutes from "./routes/authRoute.js"
 import customCssRoutes from './routes/customCssRoutes.js'
+import categoryRoutes from './routes/categoryRoutes.js'
+import productRoutes from './routes/productRoutes.js'
 import cors from 'cors'
 // cofigure env 
 dotenv.config()
@@ -26,6 +28,8 @@ app.use(morgan('dev'))
 app.use('/api/v/auth',authRoutes);
 
 app.use('/api/v/customcss',customCssRoutes);
+app.use('/api/v/category',categoryRoutes);
+app.use('/api/v/products',productRoutes);
 //home api route
 app.get("/", (req, res) => {
     res.send("<h1>Welcome to the ecommerce app</h1>");
