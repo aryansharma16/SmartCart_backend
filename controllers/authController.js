@@ -84,9 +84,9 @@ export const loginController = async (req, res) => {
     console.log(user,"hii hehe")
     // create Token
     const token = JWT.sign({ _id: user._id }, process.env.JWT_SECRET_KEY, {
-      expiresIn: "7d",
+      expiresIn: "15d",
     });
-    
+    console.log(token)
     res.status(200).send({
       success: true,
       message: "LoginSuccessfully 'in back-end'",
